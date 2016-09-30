@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>PlebiscitoUN</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1><a href="index.html">Plebiscito</a>UN</h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html" class="button">Inicio</a></li>
+							<li>
+								<a href="#" class="icon fa-angle-down" class="button">Registrar</a>
+								<ul>
+									<li><a href="#">Puesto de Votación</a></li>
+									<li><a href="#">Cédula</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2>PlebiscitoUN</h2>
+					<p>Registra tu puesto de votación, cédula y ¡VOTA!</p>
+					<ul class="actions">
+						<li><a href="#" class="button special">VOTAR</a></li>
+						<li><a href="#" class="button">Estadísticas</a></li>
+					</ul>
+				</section>r
+
+			<!-- Main -->
+				<section id="main" class="container">
+
+					<section class="box special features">
+						<div class="features-row">
+							<section>
+							<h3>Regístrese</h3>
+							<form action="registroprs.jsp" method="post">
+							    <h5>Escriba su nombre y apellido:</h5>
+							        <input type="text" name="nombre"/><br>
+								<div class="row uniform 50%">
+									<div class="6u 12u(mobilep)">
+										<h5>Escriba su número de cedula a registrar:</h5>
+										<input type="text" name="ced"/>
+									</div>
+									<div class="6u 12u(mobilep)">
+										 <h5>Escriba la ciudad donde desea votar: </h5>
+										<input type="text" name="city"/>
+									</div>
+								</div>
+									<div class="row uniform 50%">
+									<div class="6u 12u(mobilep)">
+										<h5>Escriba el departamento donde desea votar: </h5>
+										<input type="text" name="derp"/>
+									</div>
+									<div class="6u 12u(mobilep)">
+										<h5>Escriba el numero de su puesto de votación elegido:</h5>
+										<input type="text" name="numpuesto"/>
+									</div>
+								</div>
+								<br>
+							    <!--Ciudad:    <br><input type="text" name="Ciudad"/><br>-->
+								<input type="submit" name="Enviar" class="button special fit"/>
+							</form>
+							</section>
+							<section>
+							<h3><b>IMPORTANTE</b></h3>
+							<h4 align="justify"><b>Antes de registrarse, revise cuales son los puestos de votación disponibles para usted ingresando la ciudad donde desee votar</h4><br>
+							<form action="#consultapuesto.jsp" method="post">	
+								<div class="row uniform 50%">
+									<div class="6u 12u(mobilep)">
+										<input type="text" name="cedula"/>
+									</div>
+									<div class="6u 12u(mobilep)">
+										<input type="submit" name="Consultar" class="button special fit"/>
+									</div>
+								</div>								
+							</form>
+
+							</section>
+						</div>
+					</section>
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="copyright">
+						<li>Telemática. Desarrollado por Andrea Fontalvo y Catherine Diaz</li>
+						<li>Universidad del Norte. 2016</li>
+					</ul>
+				</footer>
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
