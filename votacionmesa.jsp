@@ -21,8 +21,8 @@
                             <li>
                                 <a href="#" class="icon fa-angle-down" class="button">Registrar</a>
                                 <ul>
-                                    <li><a href="registropuesto.html">Puesto de Votación</a></li>
-                                        <li><a href="registroprs.html">Cédula</a></li>
+                                        <li><a href="registropuesto.html">Puesto de Votación</a></li>
+                                        <li><a href="admincedula.html">Cédula</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -33,11 +33,11 @@
                 <section id="banner">
                     <h2>PlebiscitoUN</h2>
                     <p>Registra tu puesto de votación, cédula y ¡VOTA!</p>
-                    <ul class="actions">
-                        <li><a href="votar.html" class="button special">VOTAR</a></li>
-                        <li><a href="#" class="button">Estadísticas</a></li>
+                    <ul class="actions">                
+                        <li><a href= "votar.html" class="button special">VOTAR</a></li>                    
+                        <li><a href="estadisticas.jsp" class="button">Estadísticas</a></li>
                     </ul>
-                </section>r
+                </section>
 
             <!-- Main -->
                 <section id="main" class="container">

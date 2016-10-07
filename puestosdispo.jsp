@@ -13,7 +13,7 @@
 	</head>
 	<body class="landing">
 		<div id="page-wrapper">
-
+		
 			<!-- Header -->
 				<header id="header" class="alt">
 					<h1><a href="index.html">Plebiscito</a>UN</h1>
@@ -23,8 +23,8 @@
 							<li>
 								<a href="#" class="icon fa-angle-down" class="button">Registrar</a>
 								<ul>
-									<li><a href="#">Puesto de Votación</a></li>
-									<li><a href="registroprs.html">Cédula</a></li>
+										<li><a href="registropuesto.html">Puesto de Votación</a></li>
+										<li><a href="admincedula.html">Cédula</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -36,10 +36,12 @@
 					<h2>PlebiscitoUN</h2>
 					<p>Registra tu puesto de votación, cédula y ¡VOTA!</p>
 					<ul class="actions">
-						<li><a href="votar.html" class="button special">VOTAR</a></li>
-						<li><a href="#" class="button">Estadísticas</a></li>
+				
+						<li><a href= "votar.html" class="button special">VOTAR</a></li>
+					
+						<li><a href="estadisticas.jsp" class="button">Estadísticas</a></li>
 					</ul>
-				</section>r
+				</section>
 
 			<!-- Main -->
 				<section id="main" class="container">
