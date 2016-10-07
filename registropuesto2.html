@@ -1,15 +1,12 @@
-
 <html>
 	<head>
 		<title>PlebiscitoUN</title>
-		<%@page contentType="text/html"%> 
-        <%@page pageEncoding="UTF-8"%> 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
 	</head>
 	<body class="landing">
 		<div id="page-wrapper">
@@ -23,8 +20,8 @@
 							<li>
 								<a href="#" class="icon fa-angle-down" class="button">Registrar</a>
 								<ul>
-									<li><a href="#">Puesto de Votación</a></li>
-									<li><a href="#">Cédula</a></li>
+									<li><a href="registropuesto.html">Puesto de Votación</a></li>
+										<li><a href="registroprs.html">Cédula</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -36,8 +33,8 @@
 					<h2>PlebiscitoUN</h2>
 					<p>Registra tu puesto de votación, cédula y ¡VOTA!</p>
 					<ul class="actions">
-						<li><a href="#" class="button special">VOTAR</a></li>
-						<li><a href="#" class="button">Estadísticas</a></li>
+						<li><a href="votar.html" class="button special">VOTAR</a></li>
+						<li><a href="estadisticas.jsp" class="button">Estadísticas</a></li>
 					</ul>
 				</section>r
 
@@ -45,10 +42,38 @@
 				<section id="main" class="container">
 
 					<section class="box special features">
+						<div class="features-row">
+							<section>						
+								<h3>Registre un puesto de votación</h3>
+ 							<form action="registropuesto.jsp" method="post">
+							     <p align="right">Ingrese nombre del puesto de votación
+							     <input type="text" id="name" name="nombrepuesto" placeholder="Nombre del puesto" /><br>
+							     Ingrese dirección del puesto de votación
+							     <input type="text" id="dirpuesto" name="dirpuesto" placeholder="Dirección" /><br>
+							     Ingrese ciudad del puesto de votación
+							     <input type="text" id="ciudadpuesto" name="ciudadpuesto" placeholder="Ciudad" /><br>
+							<input type="submit" name="Enviar" value="Registrar Puesto" class="button special fit"/></p>
+							</form>
+							</section>
+
 							<section>
-							<div class="table-wrapper">
-							<h2 align="right">Puestos de Votación</h2>
-							<h4 align="justify">Los puestos de votación registrados en el sistema son los mostrados en la siguiente tabla; si se desea modificar o eliminar algun puesto de votación, puede llevar a cabo el proceso en los botones contiguos a los respectivos puestos</h4><br>
+							<h3 align="right"> Puestos de Votación</h3>
+							<p align="justify">Los puestos de votación registrados en el sistema son los mostrados en la siguiente tabla; si se desea modificar o eliminar algun puesto de votación, digite el numero de puesto a eliminar del sistema.</p>
+					
+							<form action="eliminarfila.jsp" method="post">	
+								<div class="row uniform 50%">
+									<div class="6u 12u(mobilep)">
+							       		 <input type="number" name="eliminar" placeholder=" #Puesto" class="button alt fit small" />
+							        </div>				
+							        		
+									<div class="6u 12u(mobilep)">
+										<input type="submit" name="Eliminarfil" value="Eliminar Puesto" class="button special fit small"/>
+									</div>
+									</div>
+							</form>
+							</section>
+
+							<section class="box special features">
 							<table>
 								<tr>
 									<th><center><b>#Puesto</center></th>
@@ -60,7 +85,8 @@
 	                            <%@ page import = "java.sql.*"%>
 								<%
 					            Class.forName("com.mysql.jdbc.Driver");
-					            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
+					            Connection conexion = 
+					                    DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
 					            Statement instruccion = conexion.createStatement();					          	          
 					            ResultSet tabla = instruccion.executeQuery("select * from puestovot");
 					            
@@ -76,9 +102,9 @@
 								%>
 							</table>
 							</div>
-
-							</section>
+				</section>
 						</div>
+					</section>
 				</section>
 
 			<!-- Footer -->

@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>PlebiscitoUN</title>
-       <%@ page pageEncoding= "UTF-8" %>
+        <%@ page pageEncoding= "UTF-8" %>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="assets/css/main.css" />
@@ -9,7 +9,6 @@
     </head>
     <body class="landing">
         <div id="page-wrapper">
-
             <!-- Header -->
                 <header id="header" class="alt">
                     <h1><a href="index.html">Plebiscito</a>UN</h1>
@@ -20,7 +19,7 @@
                                 <a href="#" class="icon fa-angle-down" class="button">Registrar</a>
                                 <ul>
                                     <li><a href="registropuesto.html">Puesto de Votación</a></li>
-                                        <li><a href="registroprs.html">Cédula</a></li>
+                                    <li><a href="registroprs.html">Cédula</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -32,8 +31,7 @@
                     <h2>PlebiscitoUN</h2>
                     <p>Registra tu puesto de votación, cédula y ¡VOTA!</p>
                     <ul class="actions">
-                        <li><a href="votar.html" class="button special">VOTAR</a></li>
-                        <li><a href="#" class="button">Estadísticas</a></li>
+                        
                     </ul>
                 </section>r
 
@@ -43,32 +41,37 @@
                     <section class="box special features">
                             <%@ page import = "java.sql.*"%>
                             <%
-                                String name = request.getParameter("nombre");
-                                String cedu = request.getParameter("ced");
-                                String ciudad = request.getParameter("city");
-                                String dpto = request.getParameter("derp");
-                                String num = request.getParameter("numpuesto");
-
+                                String clav = request.getParameter("clave");
+                                String a = "";
+                                
                                 Class.forName("com.mysql.jdbc.Driver");
                                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
                                 Statement st = con.createStatement(); 
                                 ResultSet rs; 
-                                //siel numero de puesto devotacion de la persona concuerda su ciudad con la del puesto la puede registrar
-                                int i = st.executeUpdate("INSERT INTO `plebiscitoun`.`registro` \n" +
-                                                                "(`numreg`,\n" +
-                                                                "`nomyapell`,\n" +
-                                                                "`cedula`,\n" +
-                                                                "`ciudad`,\n" +
-                                                                "`dpto`,\n" +
-                                                                "`numpuesto`)\n" +
-                                                                "VALUES \n" +
-                                                                "(null, \n" +
-                                                                "'"+name+"',\n" +
-                                                                "'"+cedu+"',\n" +
-                                                                "'"+ciudad+"',\n" +
-                                                                "'"+dpto+"',\n" +
-                                                                "'"+num+"');");
-                                out.println("<h4>Usted se ha registrado exitosamente</h4>");
+
+                                //para que los que ya votaron no puedan volver a votar
+                                Statement instruccion= con.createStatement();
+                                ResultSet tabla = instruccion.executeQuery("select * from admin");
+                                // si eso secumple significa que lapersona ya voto y debe solo mostrarseel mensaje que la persona ya voto
+                                    while (tabla.next()) {
+                                    a=tabla.getString(1);
+                                    }                                
+                            
+                                 if(a.equals(clav)) {
+                                            response.sendRedirect("registropuesto2.jsp"); 
+                                     }   
+                                     else {                                                                   
+                                            response.sendRedirect("admin.html"); 
+
+
+                                    }
+                                 
+                                // si eso  NO secumple significa que lapersona no se  ha registrado y no puede votar todavia
+                            con.close();
+                            // cerrar if
+
+                            // si no tiene ninguno de esos problemas un if  grabe esa cedula en la tabla de los que votaron y redirija a la pagina donde va a votar
+
                             %>
                      </section>
                 </section>

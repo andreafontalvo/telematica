@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>PlebiscitoUN</title>
-       <%@ page pageEncoding= "UTF-8" %>
+     <%@page pageEncoding="UTF-8"%> 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="assets/css/main.css" />
@@ -41,35 +41,18 @@
                 <section id="main" class="container">
 
                     <section class="box special features">
-                            <%@ page import = "java.sql.*"%>
-                            <%
-                                String name = request.getParameter("nombre");
-                                String cedu = request.getParameter("ced");
-                                String ciudad = request.getParameter("city");
-                                String dpto = request.getParameter("derp");
-                                String num = request.getParameter("numpuesto");
-
-                                Class.forName("com.mysql.jdbc.Driver");
-                                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
-                                Statement st = con.createStatement(); 
-                                ResultSet rs; 
-                                //siel numero de puesto devotacion de la persona concuerda su ciudad con la del puesto la puede registrar
-                                int i = st.executeUpdate("INSERT INTO `plebiscitoun`.`registro` \n" +
-                                                                "(`numreg`,\n" +
-                                                                "`nomyapell`,\n" +
-                                                                "`cedula`,\n" +
-                                                                "`ciudad`,\n" +
-                                                                "`dpto`,\n" +
-                                                                "`numpuesto`)\n" +
-                                                                "VALUES \n" +
-                                                                "(null, \n" +
-                                                                "'"+name+"',\n" +
-                                                                "'"+cedu+"',\n" +
-                                                                "'"+ciudad+"',\n" +
-                                                                "'"+dpto+"',\n" +
-                                                                "'"+num+"');");
-                                out.println("<h4>Usted se ha registrado exitosamente</h4>");
-                            %>
+                        <%@ page import = "java.sql.*"%>
+                        <%
+                            String id = request.getParameter("eliminar");
+                            Class.forName("com.mysql.jdbc.Driver");
+                            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
+                            Statement instruccion = con.createStatement();
+                            String tabla = "delete from puestovot where idpuesto ='" +id+"'";
+                            PreparedStatement preparedStat= con.prepareStatement(tabla);
+                            preparedStat.execute();
+                            out.println("Usted ha eliminado exitosamente la fila de la tabla");
+                            con.close();
+                        %>
                      </section>
                 </section>
 

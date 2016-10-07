@@ -35,7 +35,7 @@
 					<h2>PlebiscitoUN</h2>
 					<p>Registra tu puesto de votación, cédula y ¡VOTA!</p>
 					<ul class="actions">
-						<li><a href="#" class="button special">VOTAR</a></li>
+						<li><a href="votar.html" class="button special">VOTAR</a></li>
 						<li><a href="#" class="button">Estadísticas</a></li>
 					</ul>
 				</section>r
@@ -46,7 +46,7 @@
 					<section class="box special features">
 							<section>
 							<div class="table-wrapper">
-							<h2 align="right">Puestos de Votación en su ciudad</h2>
+							<h2 align="right">Puesto de votación registrado</h2>
 							<!-- <table>
 								<tr>
 									<th><center><b>#Puesto</center></th>
@@ -57,29 +57,29 @@
 	                            <%@ page import = "java.sql.*"%>
 								<%
 
-                                String ciu = request.getParameter("ciudadpuesto");
+                            String cedd = request.getParameter("numcedula");
 
-					            Class.forName("com.mysql.jdbc.Driver");
-					            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
-					            Statement instruccion = conexion.createStatement();					          	          
-					            ResultSet hola = instruccion.executeQuery("SELECT idpuesto, NombrePuesto, Direccion, Ciudad FROM puestovot  WHERE Ciudad='"+ciu+"'");
-					            while(hola.next()){
-					            out.println("<br><h4>");
-					            out.println("<b>#Puesto:</b>");
-					            out.println(hola.getString(1));
-					            out.println("<b>| Nombre Puesto:</b>");
-					            out.println(hola.getString(2));
-      					        out.println("<b>| Dirección:</b>");
-					            out.println(hola.getString(3));
-      					        out.println("<b>| Ciudad:</b>");
-					            out.println(hola.getString(4));
-
-				            	// out.println("<tr>");
-				            	// out.println("<td><center>"+hola.getString(1)+"</center></td>");
-				            	// out.println("<td><center>"+hola.getString(2)+"</center></td>");
-				            	// out.println("<td><center>"+hola.getString(3)+"</center></td>");
-				            	// out.println("<td><center>"+hola.getString(4)+"</center></td>");
-				            	// out.println("</tr>");      	    	
+				            Class.forName("com.mysql.jdbc.Driver");
+				            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
+				            Statement instruccion = conexion.createStatement();					          	          
+				            ResultSet hola = instruccion.executeQuery("SELECT nomyapell, cedula, idpuesto, NombrePuesto, "+
+					                                                 "Direccion, registro.ciudad \n" +
+					                                                "FROM puestovot, registro\n" +
+					                                                "WHERE cedula='"+cedd+"' and idpuesto=numpuesto");
+				            while(hola.next()){
+				            out.println("<h4>El ciudadano<b> ");	
+				            out.println(hola.getString(1));
+				            out.println("</b>identificado con cédula<b>");	
+				            out.println(hola.getString(2));
+				            out.println("</b><br>tiene registrado el puesto de votación #<b> ");	
+				            out.println(hola.getString(3));
+				            out.println("</b>en ");	
+				            out.println(hola.getString(4));
+				            out.println(",");	
+				            out.println(hola.getString(5));
+				            out.println(",");	
+				            out.println(hola.getString(6));
+ 	    	
 				            	};
                            
 								%>

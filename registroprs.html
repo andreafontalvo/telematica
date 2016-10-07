@@ -25,8 +25,8 @@
 							<li>
 								<a href="#" class="icon fa-angle-down" class="button">Registrar</a>
 								<ul>
-									<li><a href="#">Puesto de Votación</a></li>
-									<li><a href="#">Cédula</a></li>
+									<li><a href="registropuesto.html">Puesto de Votación</a></li>
+										<li><a href="registroprs.html">Cédula</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -38,8 +38,8 @@
 					<h2>PlebiscitoUN</h2>
 					<p>Registra tu puesto de votación, cédula y ¡VOTA!</p>
 					<ul class="actions">
-						<li><a href="#" class="button special">VOTAR</a></li>
-						<li><a href="#" class="button">Estadísticas</a></li>
+						<li><a href="votar.html" class="button special">VOTAR</a></li>
+						<li><a href="estadisticas.jsp" class="button">Estadísticas</a></li>
 					</ul>
 				</section>r
 
@@ -51,43 +51,49 @@
 							<section>
 							<h3>Regístrese</h3>
 							<form action="registroprs.jsp" method="post">
-							    <h5>Escriba su nombre y apellido:</h5>
-							        <input type="text" name="nombre"/><br>
+							    <h5>Escriba nombre y apellido:</h5>
+							        <input type="text" name="nombre" placeholder="Nombre y Apellido" required="" /><br>
 								<div class="row uniform 50%">
 									<div class="6u 12u(mobilep)">
-										<h5>Escriba su número de cedula a registrar:</h5>
-										<input type="text" name="ced"/>
+										<h5>Escriba número de cedula a registrar:</h5>
+										<input type="text" name="ced" placeholder="Cédula" required="" />
 									</div>
 									<div class="6u 12u(mobilep)">
-										 <h5>Escriba la ciudad donde desea votar: </h5>
-										<input type="text" name="city"/>
+										 <h5>Escriba la ciudad a votar: </h5>
+										<input type="text" name="city" placeholder="Ciudad" required="" />
 									</div>
 								</div>
-									<div class="row uniform 50%">
+								<div class="row uniform 50%">
 									<div class="6u 12u(mobilep)">
-										<h5>Escriba el departamento donde desea votar: </h5>
-										<input type="text" name="derp"/>
+										<h5>Escriba el departamento a votar: </h5>
+										<input type="text" name="derp" placeholder="Departamento" required="" />
 									</div>
 									<div class="6u 12u(mobilep)">
-										<h5>Escriba el numero de su puesto de votación elegido:</h5>
-										<input type="text" name="numpuesto"/>
+										<h5>Escriba el número del puesto de votación elegido:</h5>
+										<input type="text" name="numpuesto" placeholder="#Puesto" required="" />
 									</div>
 								</div>
 								<br>
-							    <!--Ciudad:    <br><input type="text" name="Ciudad"/><br>-->
-								<input type="submit" name="Enviar" class="button special fit"/>
+								<div class="row uniform 50%">
+									<div class="6u 12u(mobilep)">
+									<input type="submit" name="Enviar" value="Registrarse" class="button special fit"/>
+								</div>
+									<div class="6u 12u(mobilep)">
+									<input type="reset" name="Descartar" class="button fit"/>
+								</div>
+								</div>
 							</form>
 							</section>
 							<section>
 							<h3><b>IMPORTANTE</b></h3>
-							<h4 align="justify"><b>Antes de registrarse, revise cuales son los puestos de votación disponibles para usted ingresando la ciudad donde desee votar</h4><br>
-							<form action="#consultapuesto.jsp" method="post">	
+							<h4 align="justify"><b>Revise cuales son los puestos de votación disponibles para el usuario a registrar, ingresando la ciudad donde se desee votar</h4><br>
+							<form action="puestosdisponibles.jsp" method="post">	
 								<div class="row uniform 50%">
 									<div class="6u 12u(mobilep)">
-										<input type="text" name="cedula"/>
+										<input type="text" name="ciudadpuesto" placeholder="Ciudad a Votar" required="" />
 									</div>
 									<div class="6u 12u(mobilep)">
-										<input type="submit" name="Consultar" class="button special fit"/>
+										<input type="submit" name="Consultar" value="Consultar puestos" class="button special fit"/>
 									</div>
 								</div>								
 							</form>

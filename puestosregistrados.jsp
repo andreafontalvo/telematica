@@ -41,53 +41,59 @@
 				</section>r
 
 			<!-- Main -->
-				<section id="main" class="container">
-
+				<section id="main" class="container">	
 					<section class="box special features">
-							<section>
-							<div class="table-wrapper">
-							<h2 align="right">Puestos de Votación en su ciudad</h2>
-							<!-- <table>
+					<div class="features-row">
+						<section>					
+							<h2 align="right"> Puestos de Votación</h2>
+							<p align="justify">Los puestos de votación registrados en el sistema son los mostrados en la siguiente tabla; si se desea modificar o eliminar algun puesto de votación, digite el numero de puesto a eliminar del sistema.</p>
+						</section>
+
+						<section>
+							<form action="eliminarfila.jsp" method="post">	
+							<center><br><br><br>
+									<div class="6u 12u(mobilep)">
+							       		 <input type="number" name="eliminar" placeholder=" #Puesto" class="button alt fit small" />
+							        </div>				
+							        <br>		
+									<div class="6u 12u(mobilep)">
+										<input type="submit" name="Eliminarfil" value="Eliminar Puesto" class="button special fit small"/>
+									</div>
+									</center>
+							</form>
+						</section>
+						</div>
+				</section>
+
+				<section class="box special features">
+							<table>
 								<tr>
 									<th><center><b>#Puesto</center></th>
 									<th><center><b>Puesto</center></th>
 									<th><center><b>Dirección</center></th>
 									<th><center><b>Ciudad</b></center></th>
-								</tr> -->
+									<th><center><b>Acción</b></center></th>
+								</tr>
 	                            <%@ page import = "java.sql.*"%>
 								<%
-
-                                String ciu = request.getParameter("ciudadpuesto");
-
 					            Class.forName("com.mysql.jdbc.Driver");
-					            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
+					            Connection conexion = 
+					                    DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
 					            Statement instruccion = conexion.createStatement();					          	          
-					            ResultSet hola = instruccion.executeQuery("SELECT idpuesto, NombrePuesto, Direccion, Ciudad FROM puestovot  WHERE Ciudad='"+ciu+"'");
-					            while(hola.next()){
-					            out.println("<br><h4>");
-					            out.println("<b>#Puesto:</b>");
-					            out.println(hola.getString(1));
-					            out.println("<b>| Nombre Puesto:</b>");
-					            out.println(hola.getString(2));
-      					        out.println("<b>| Dirección:</b>");
-					            out.println(hola.getString(3));
-      					        out.println("<b>| Ciudad:</b>");
-					            out.println(hola.getString(4));
-
-				            	// out.println("<tr>");
-				            	// out.println("<td><center>"+hola.getString(1)+"</center></td>");
-				            	// out.println("<td><center>"+hola.getString(2)+"</center></td>");
-				            	// out.println("<td><center>"+hola.getString(3)+"</center></td>");
-				            	// out.println("<td><center>"+hola.getString(4)+"</center></td>");
-				            	// out.println("</tr>");      	    	
+					            ResultSet tabla = instruccion.executeQuery("select * from puestovot");
+					            
+					            while(tabla.next()){
+				            	out.println("<tr>");
+				            	out.println("<td><center>"+tabla.getString(1)+"</center></td>");
+				            	out.println("<td><center>"+tabla.getString(2)+"</center></td>");
+				            	out.println("<td><center>"+tabla.getString(3)+"</center></td>");
+				            	out.println("<td><center>"+tabla.getString(4)+"</center></td>");
+				            	out.println("</tr>");      	    	
 				            	};
                            
 								%>
-			<!-- 				</table> -->
+							</table>
 							</div>
-
-							</section>
-						</div>
 				</section>
 
 			<!-- Footer -->
