@@ -111,7 +111,10 @@
                                 </script>
                             </canvas>     
                     </section>
-                    <section>                        
+                    <section> 
+
+                    <h3>Votaciones por puesto</h3>
+                    <p align="justify">Para ver los resultados de las votaciones por puesto de votación, ingrese el numero del puesto de votación en cuestión:</p>                       
                             <form action="votacionmesa.jsp" method="post">  
                                 <div class="row uniform 50%">
                                     <div class="6u 12u(mobilep)">
@@ -119,7 +122,7 @@
                                     </div>              
                                             
                                     <div class="6u 12u(mobilep)">
-                                        <input type="submit" name="vervotosmesa" value="Ver votación por mesa" class="button special fit small"/>
+                                        <input type="submit" name="vervotosmesa" value="Ver votación por puesto" class="button special fit small"/>
                                     </div>
                                     </div>
                             </form>

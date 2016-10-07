@@ -40,20 +40,42 @@
 
 			<!-- Main -->
 				<section id="main" class="container">
-					<section class="box special features">
-						<div class="features-row">
-							<section>
-							<h3 align="justify">¿Apoya usted el acuerdo final para la terminación del conflicto y la construcción de una <b>PAZ</b> estable y duradera?</h3>
-							<form action="votacion.jsp" method="post">
-								<input type="Submit" name="elijo" value="Si">
-								<input type="Submit" name="elijo" value="No">
+
+		             <script src = "holahola.js"> </script>
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+
+					<section  class="box special features" >
+					<div class="features-row">
+					<section>
+					<div id = "votacion" style = "display : inline">
+						
+							<h3><br>¿Está usted de acuerdo con el acuerdo que se realizó en la habana?</h3>
+
+							<form >
+							<!--  action="votacion.jsp" method="post"-->
+
+								<input type="Button" id ="elijono" title="No" value="No" onclick = "no();" style ="display : inline" >
+								<input type="Button" id ="elijosi" title="Sí" value="Si" onclick = "si();" style ="display: inline">
+
 							</form>
-							<h3 align="justify">¿Está seguro?</h3>
-							</section>
+							</div>
+					</section>
+					
+				    <section>
+						<div id = "confirmacion" style = "display : none">
+							<h3> <br>¿Está usted seguro de su elección?</h3>
 
-							<section>
-
-	                            <%@ page import = "java.sql.*"%>
+							<form action="votacion.jsp" method="post" >
+							<!--  action="votacion.jsp" method="post"-->
+                            <input type ="text" id = "elijo" title = "elijo" name="elijo" value="" style = "display : none">
+							<input type="button" id ="confirmono" title="No" value="No" onclick = "confirmarno();" style ="display : inline">
+							<input type="Submit" id ="confirmosi" value = "Si" >
+	
+							</form>
+							</div>
+					</section>
+<section>
+<%@ page import = "java.sql.*"%>
 								<%
 
                                 String cedu = (String) session.getAttribute("TheCedu");
@@ -67,23 +89,23 @@
                                                         "from puestovot, registro where numpuesto=idpuesto and cedula='" +cedu+"'");
 					            
 					            while(tabla.next()){
-			 		           	out.println("<h3>Datos Votante</h3><br>");
-				            	out.println("<h4><b>#Puesto: </b>"+tabla.getString(1)+"");
-				            	out.println("<h4><b>Nombre Puesto: </b>"+tabla.getString(2)+"");
-				            	out.println("<h4><b>Ciudad: </b>"+tabla.getString(3)+"");
-				            	out.println("<h4><b>Departamento: </b>"+tabla.getString(4)+"");
-				            	out.println("<br><h4><b>Nombre Votante: </b>"+tabla.getString(5)+"");
-				            	out.println("<h4><b>Cédula Votante: </b>"+tabla.getString(6)+"");
+			 		           	out.println("<h3 align='left'>..."Datos Votante</h3>");
+				            	out.println("<h4 align='right'><b> #Puesto: </b>"+tabla.getString(1)+"");
+				            	out.println("<h4 align='right'><b>Nombre Puesto: </b>"+tabla.getString(2)+"");
+				            	out.println("<h4 align='right'><b>Ciudad: </b>"+tabla.getString(3)+"");
+				            	out.println("<h4 align='right'><b>Departamento: </b>"+tabla.getString(4)+"");
+				            	out.println("<br><h4 align='right'><b>Nombre Votante: </b>"+tabla.getString(5)+"");
+				            	out.println("<h4 align='right'><b>Cédula Votante: </b>"+tabla.getString(6)+"");
       	    	
 				            	};                           
 								%>
 
-							</table>
-							</section>
+</section>
 
-														
+					</section>																	
+				
 					</section>
-				</section>
+				
 
 			<!-- Footer -->
 				<footer id="footer">

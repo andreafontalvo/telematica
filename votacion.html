@@ -39,22 +39,37 @@
 
 			<!-- Main -->
 				<section id="main" class="container">
-					<section class="box special features">
-						<div class="features-row">
-							<section>
-							<h3 align="justify">¿Apoya usted el acuerdo final para la terminación del conflicto y la construcción de una <b>PAZ</b> estable y duradera?</h3>
-							<form action="votacion.jsp" method="post">
-								<input type="Submit" name="elijo" value="Si" class="button special">
-								<input type="Submit" name="elijo" value="No"  class="button">
+		             <script src = "holahola.js"> </script>
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.0/jquery.min.js"></script>
+
+					<section id = "votacion" class="box special features" style = "display : inline">
+						
+							<h3>¡Vote!  ¿Está usted de acuerdo con el acuerdo que se realizó en la habana?</h3>
+
+							<form >
+							<!--  action="votacion.jsp" method="post"-->
+
+								<input type="Button" id ="elijono" title="No" value="No" onclick = "no();" style ="display : inline" >
+								<input type="Button" id ="elijosi" title="Sí" value="Si" onclick = "si();" style ="display: inline">
+
 							</form>
-							<h3 align="justify">¿Está seguro?</h3>
-							</section>
+					</section>
+					
+				    <section id = "confirmacion" class="box special features" style = "display : none">
+						
+							<h3> ¿Está usted seguro de su elección?</h3>
 
-							<section>
+							<form action="votacion.jsp" method="post" >
+							<!--  action="votacion.jsp" method="post"-->
+                            <input type ="text" id = "elijo" title = "elijo" name="elijo" value="" style = "display : none">
+							<input type="button" id ="confirmono" title="No" value="No" onclick = "confirmarno();" style ="display : inline">
+							<input type="Submit" id ="confirmosi" value = "Si" >
+	
+							</form>
+					</section>
+							
 
-							</section>
-
-							</div>							
+							
 					</section>
 				</section>
 

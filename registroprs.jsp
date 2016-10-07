@@ -19,8 +19,8 @@
                             <li>
                                 <a href="#" class="icon fa-angle-down" class="button">Registrar</a>
                                 <ul>
-                                        <li><a href="registropuesto.html">Puesto de Votación</a></li>
-                                        <li><a href="admincedula.html">Cédula</a></li>
+                                    <li><a href="registropuesto.html">Puesto de Votación</a></li>
+                                    <li><a href="admincedula.html">Cédula</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -39,7 +39,7 @@
                     </ul>
                 </section>
 
-            <!-- Main -->
+           <!-- Main -->
                 <section id="main" class="container">
 
                     <section class="box special features">
@@ -50,12 +50,30 @@
                                 String ciudad = request.getParameter("city");
                                 String dpto = request.getParameter("derp");
                                 String num = request.getParameter("numpuesto");
+                                String data="";
+                                String datac="";
+                                int[] idpue= new int[10] ;
 
                                 Class.forName("com.mysql.jdbc.Driver");
                                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost/plebiscitoun","root","1234");
                                 Statement st = con.createStatement(); 
                                 ResultSet rs; 
-                                //siel numero de puesto devotacion de la persona concuerda su ciudad con la del puesto la puede registrar
+
+                                ResultSet datos = st.executeQuery("select Ciudad from puestovot where idpuesto= '"+num+"' ");
+                                while(datos.next()){data=datos.getString("Ciudad");}
+
+                                ResultSet cc = st.executeQuery("select cedula from registro where cedula = '"+cedu+"' ");
+                                while(cc.next()){datac=cc.getString("cedula");}
+                                /*int ceduint = Integer.parseInt(cedu);*/
+                                //hacer que cedu se vuelva int para  la comparacion de  datac con cedu
+
+
+                                if(data.equals(ciudad)){
+                                if(datac.equals(cedu)){
+                                       out.println("<h4>La cedula que ingresó ya fué registrada</h4>");
+                             /*}*/}
+                                else{
+
                                 int i = st.executeUpdate("INSERT INTO `plebiscitoun`.`registro` \n" +
                                                                 "(`numreg`,\n" +
                                                                 "`nomyapell`,\n" +
@@ -70,29 +88,27 @@
                                                                 "'"+ciudad+"',\n" +
                                                                 "'"+dpto+"',\n" +
                                                                 "'"+num+"');");
+                                                                
                                 out.println("<h4>Usted se ha registrado exitosamente</h4>");
+                                }
+                                }
+                                else {
+                                       out.println("<h4>La ciudad del número de puesto que desea registrar no coincide con la que usted seleccionó </h4>");
+
+                                }
+                             /*else {*/
+                                
+                            /*}*/    
+                         
+
+                                // si eso  NO secumple significa que lapersona no se  ha registrado y no puede votar todavia
+                            con.close();
                             %>
                      </section>
                 </section>
 
-            <!-- CTA -->
-                <!-- <section id="cta">
 
-                    <h2>Sign up for beta access</h2>
-                    <p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
 
-                    <form>
-                        <div class="row uniform 50%">
-                            <div class="8u 12u(mobilep)">
-                                <input type="email" name="email" id="email" placeholder="Email Address" />
-                            </div>
-                            <div class="4u 12u(mobilep)">
-                                <input type="submit" value="Sign Up" class="fit" />
-                            </div>
-                        </div>
-                    </form>
-
-                </section>-->
 
             <!-- Footer -->
                 <footer id="footer">
