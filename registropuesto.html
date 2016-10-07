@@ -1,9 +1,3 @@
-<!DOCTYPE HTML>
-<!--
-	Alpha by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>PlebiscitoUN</title>
@@ -12,6 +6,7 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
 	</head>
 	<body class="landing">
 		<div id="page-wrapper">
@@ -25,8 +20,8 @@
 							<li>
 								<a href="#" class="icon fa-angle-down" class="button">Registrar</a>
 								<ul>
-									<li><a href="#">Puesto de Votación</a></li>
-									<li><a href="#">Cédula</a></li>
+									<li><a href="registropuesto.html">Puesto de Votación</a></li>
+										<li><a href="registroprs.html">Cédula</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -38,8 +33,8 @@
 					<h2>PlebiscitoUN</h2>
 					<p>Registra tu puesto de votación, cédula y ¡VOTA!</p>
 					<ul class="actions">
-						<li><a href="#" class="button special">VOTAR</a></li>
-						<li><a href="#" class="button">Estadísticas</a></li>
+						<li><a href="votar.html" class="button special">VOTAR</a></li>
+						<li><a href="estadisticas.jsp" class="button">Estadísticas</a></li>
 					</ul>
 				</section>r
 
@@ -48,22 +43,42 @@
 
 					<section class="box special features">
 						<div class="features-row">
+
+							<section>						
+							<h3>Consulte su puesto de votación</h3>
+							<p align="justify">Si ya se ha registrado en el sistema, digite su número de cédula para revisar el puesto de votación registrado. Si no lo ha hecho aun, puede registrarse <b><a href="registroprs.html" target="_blank">aquí</a></b></p>
+							<form action="verpuesto.jsp" method="post" onsubmit="return valregistropuesto();">	
+								<div class="row uniform 50%">
+									<div class="6u 12u(mobilep)">
+										<input type="text" id="numcedula" name="numcedula" placeholder="Ingrese cédula" required="" />
+									</div>
+									<div class="6u 12u(mobilep)">
+										<input type="submit" name="Consultar" value="Consultar" class="button special fit"/>
+									</div>
+								</div>								
+							</form>
+							
+							</section>
+
 							<section>
 							<h3>Registre un puesto de votación</h3>
-							<form action="registropuesto.jsp" method="post">
-							    Nombre del puesto de votación:    <br><input type="text" name="nombrepuesto"/><br>
-							    Dirección del puesto de votación:    <br><input type="text" name="dirpuesto"/><br>
-							    Ciudad del puesto de votación: <br><input type="text" name="ciudadpuesto"/><br>
-							    <!--Ciudad:    <br><input type="text" name="Ciudad"/><br>-->
-								<input type="submit" name="Enviar" class="button special fit"/>
+							<p align="justify">El registro de puestos de votación solo puede ser llevado a cabo por un Administrador</p><br>
+ 							<form action="admin.html" method="post">
+								<input type="submit" name="Enviar" value="Registrar Puesto" class="button special fit"/></p>
 							</form>
-							</section>
-							<section>
-							<h3>Consulte puestos de votación</h3>
-							<p align="justify">Para ver los puestos de votación registrados en el sistema, <b><a href="tablaelimpuesto.jsp" target="_blank">dirigase aqui</a> </b></p>
+
+<!-- 							<form action="registropuesto.jsp" method="post">
+							     <p align="right">Ingrese nombre del puesto de votación
+							     <input type="text" id="name" name="nombrepuesto" placeholder="Nombre del puesto" /><br>
+							     Ingrese dirección del puesto de votación
+							     <input type="text" id="dirpuesto" name="dirpuesto" placeholder="Dirección" /><br>
+							     Ingrese ciudad del puesto de votación
+							     <input type="text" id="ciudadpuesto" name="ciudadpuesto" placeholder="Ciudad" /><br>
+							     ciudad:    <br><input type="text" name="Ciudad"/><br> -->							
+							<!-- <input type="submit" name="Enviar" value="Registrar Puesto" class="button special fit"/></p>
+							</form> -->
 
 							</section>
-
 						</div>
 					</section>
 				</section>
