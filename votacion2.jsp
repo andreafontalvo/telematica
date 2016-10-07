@@ -53,9 +53,8 @@
 
 							<form >
 							<!--  action="votacion.jsp" method="post"-->
-
+								<input type="Button" class="special button" id ="elijosi" title="Sí" value="Si" onclick = "si();" style ="display: inline">
 								<input type="Button" id ="elijono" title="No" value="No" onclick = "no();" style ="display : inline" >
-								<input type="Button" id ="elijosi" title="Sí" value="Si" onclick = "si();" style ="display: inline">
 
 							</form>
 							</div>
@@ -74,8 +73,8 @@
 							</form>
 							</div>
 					</section>
-<section>
-<%@ page import = "java.sql.*"%>
+					<section>
+								<%@ page import = "java.sql.*"%>
 								<%
 
                                 String cedu = (String) session.getAttribute("TheCedu");
@@ -89,7 +88,7 @@
                                                         "from puestovot, registro where numpuesto=idpuesto and cedula='" +cedu+"'");
 					            
 					            while(tabla.next()){
-			 		           	out.println("<h3 align='left'>..."Datos Votante</h3>");
+			 		           	out.println("<h3 >   Datos Votante</h3>");
 				            	out.println("<h4 align='right'><b> #Puesto: </b>"+tabla.getString(1)+"");
 				            	out.println("<h4 align='right'><b>Nombre Puesto: </b>"+tabla.getString(2)+"");
 				            	out.println("<h4 align='right'><b>Ciudad: </b>"+tabla.getString(3)+"");
@@ -100,7 +99,7 @@
 				            	};                           
 								%>
 
-</section>
+					</section>
 
 					</section>																	
 				

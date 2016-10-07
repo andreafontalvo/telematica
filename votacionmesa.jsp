@@ -46,7 +46,7 @@
                          <div class="features-row">
 
                     <section>
-asdsadsad
+<h3>Los siguientes corresponden a las votaciones realizadas en las mesas registradas seleccionadas.</h3>
                     </section>
 
                     <section>                
